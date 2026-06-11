@@ -11,9 +11,7 @@ function App() {
     date: '',
     time: '',
     location: '',
-    message: '',
-    invitationGifUrl: '',
-    successGifUrl: ''
+    message: ''
   })
   const [noButtonPosition, setNoButtonPosition] = useState({ x: 0, y: 0 })
   const [yesScale, setYesScale] = useState(1)
@@ -94,11 +92,7 @@ function App() {
           <div className="hero-section">
             <div className="heart-icon-wrapper">
               <div className="heart-glow"></div>
-              {invitation.invitationGifUrl ? (
-                <img src={invitation.invitationGifUrl} alt="Гифка" className="gif-image" />
-              ) : (
-                <Heart className="heart-icon" />
-              )}
+              <img src="/gifs/1.gif" alt="Гифка" className="gif-image" />
             </div>
             <h1 className="main-title">
               Самый веселый способ
@@ -237,26 +231,6 @@ function App() {
                     placeholder="Напиши что-нибудь особенное..."
                   />
                 </div>
-                <div className="form-group">
-                  <label className="form-label">URL гифки для страницы приглашения (опционально)</label>
-                  <input
-                    type="text"
-                    value={invitation.invitationGifUrl}
-                    onChange={(e) => setInvitation({...invitation, invitationGifUrl: e.target.value})}
-                    className="form-input"
-                    placeholder="Вставь ссылку на гифку для страницы приглашения..."
-                  />
-                </div>
-                <div className="form-group">
-                  <label className="form-label">URL гифки для страницы успеха (опционально)</label>
-                  <input
-                    type="text"
-                    value={invitation.successGifUrl}
-                    onChange={(e) => setInvitation({...invitation, successGifUrl: e.target.value})}
-                    className="form-input"
-                    placeholder="Вставь ссылку на гифку для страницы успеха..."
-                  />
-                </div>
                 <button
                   onClick={handleCreateInvitation}
                   disabled={!invitation.recipientName || !invitation.senderName}
@@ -285,11 +259,9 @@ function App() {
         </div>
         <div className="container">
           <div className="invitation-card">
-            {invitation.invitationGifUrl && (
-              <div className="invitation-gif-container">
-                <img src={invitation.invitationGifUrl} alt="Гифка" className="invitation-gif-large" />
-              </div>
-            )}
+            <div className="invitation-gif-container">
+              <img src="/gifs/1.gif" alt="Гифка" className="invitation-gif-large" />
+            </div>
             
             <h1 className="invitation-title">{invitation.recipientName}!</h1>
             <p className="invitation-text">
@@ -386,9 +358,7 @@ function App() {
                   date: '',
                   time: '',
                   location: '',
-                  message: '',
-                  invitationGifUrl: '',
-                  successGifUrl: ''
+                  message: ''
                 })
                 setShareUrl('')
                 setStep('home')
@@ -427,11 +397,9 @@ function App() {
         </div>
         <div className="container">
           <div className="success-card">
-            {invitation.successGifUrl && (
-              <div className="success-gif-container">
-                <img src={invitation.successGifUrl} alt="Гифка" className="success-gif-large" />
-              </div>
-            )}
+            <div className="success-gif-container">
+              <img src="/gifs/2.gif" alt="Гифка" className="success-gif-large" />
+            </div>
             <div className="success-icon-wrapper">
               <div className="success-icon-glow"></div>
               <Heart className="success-icon" />
@@ -466,9 +434,7 @@ function App() {
                   date: '',
                   time: '',
                   location: '',
-                  message: '',
-                  invitationGifUrl: '',
-                  successGifUrl: ''
+                  message: ''
                 })
                 setYesScale(1)
                 setNoClickCount(0)
